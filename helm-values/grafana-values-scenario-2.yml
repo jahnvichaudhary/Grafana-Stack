@@ -1,0 +1,30 @@
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+    - name: Mimir
+      type: prometheus
+      access: proxy
+      url: http://mimir-nginx.mimir.svc.cluster.local:80/prometheus
+      basicAuth: false
+      isDefault: true
+      editable: true
+      jsonData:
+          alertmanagerUid: "alertmanager"
+    - name: Mimir Alertmanager
+      uid: alertmanager
+      type: alertmanager
+      access: proxy
+      orgId: 1
+      url: http://mimir-nginx.mimir.svc.cluster.local/
+      version: 1
+      editable: true
+      jsonData:
+        implementation: "cortex"
+    - name: Loki
+      type: loki
+      access: proxy
+      url: http://loki-gateway.loki.svc.cluster.local
+      editable: true
+      jsonData:
+        maxLines: 1000
