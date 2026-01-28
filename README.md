@@ -127,3 +127,10 @@ Uninstall `GrafanaAgent`, `LogsInstance` and `PodLogs` resources inside `default
     kubectl apply -f migrate-from-agent-to-alloy/logs/alloy-configMap.yml
     helm install alloy-logs grafana/alloy -n alloy-logs -f migrate-from-agent-to-alloy/logs/alloy-helmValues.yml
 If you pay attention to `loki.process` inside `migrate-from-agent-to-alloy/logs/alloy-configMap.yml`, you find out that i use an additional `stage` which adds `status_code` and `method` labels to the pods inside `nginx` namespace. if you take a look at `Explore` section of grafana, All logs within `nginx` namespace, have those added labels.
+
+👨‍💻 Author
+Jahnvi Chaudhary
+ 
+
+ 📬 **Contact**: 
+[LinkedIn](www.linkedin.com/in/jahnvi-chaudhary-756152212) | [Email](chaudharyjahnvi@gmail.com)
